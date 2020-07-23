@@ -21,15 +21,15 @@ public class Runner implements ApplicationRunner {
     @Override
     @Transactional
     public void run(ApplicationArguments args) throws Exception {
-        Person p = new Person();
-        Director d = new Director();
-        p.setFirstName("first");
-        p.setLastName("last");
-        d.setQuantMovies(5);
-
-        personRepository.save(p);
-        p.setDirector(d);
-        d.setPerson(p);
-        directorRepository.save(d);
+//        Person p = new Person();
+//        Director d = new Director();
+//        p.setFirstName("first");
+//        p.setLastName("last");
+//        d.setQuantMovies(5);
+//
+//        personRepository.save(p);
+//        p.setDirector(d);
+//        d.setPerson(p);
+//        directorRepository.save(d);
     }
 }

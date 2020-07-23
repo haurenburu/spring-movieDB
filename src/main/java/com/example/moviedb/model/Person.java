@@ -16,9 +16,4 @@ public class Person {
     Long id;
     String firstName;
     String lastName;
-
-    @OneToOne
-    @JoinColumn(name = "director_id")
-    Director director;
-
 }

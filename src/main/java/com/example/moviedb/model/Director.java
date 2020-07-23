@@ -17,6 +17,7 @@ public class Director {
     Integer quantMovies;
 
     @OneToOne
+    @MapsId
     @JoinColumn(name = "person_id")
     Person person;
 
