@@ -22,6 +22,6 @@ public class DirectorController {
     }
     @PostMapping
     public Director create(@RequestBody Director d) {
-        return service.create(d);
+        return service.save(d);
     }
 }
