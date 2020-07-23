@@ -14,7 +14,6 @@ import java.util.Optional;
 @RequestMapping("/director")
 public class DirectorController {
     private DirectorService service;
-    private DirectorRepository repository;
 
     public DirectorController(DirectorService service) { this.service = service; }
 

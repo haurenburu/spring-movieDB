@@ -11,20 +11,16 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class Director {
+
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    Integer quantMovies;
+    String title;
+    Integer duration;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    List<Movie> movies;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "person_id")
-    Person person;
-
-
+    @ManyToOne
+    @JoinColumn(name = "director_id")
+    Director director;
 
 }
