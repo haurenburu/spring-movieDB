@@ -16,7 +16,7 @@ public class Director {
     Long id;
     Integer quantMovies;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "person_id")
     Person person;

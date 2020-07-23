@@ -14,10 +14,15 @@ public class PersonController {
     public PersonController(PersonService service) {
         this.service = service;
     }
+
     @GetMapping
     public List<Person> listAll() {
         return service.getAll();
     }
+
+    @GetMapping(path = {"/{id}"})
+    public Person getOne(@PathVariable Long id) { return service.getOne(id);}
+
     @PostMapping
     public Person insert(@RequestBody Person p) {
         return service.save(p);

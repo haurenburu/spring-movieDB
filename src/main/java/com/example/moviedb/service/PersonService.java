@@ -15,7 +15,7 @@ public class PersonService {
     }
 
     public Person save(Person p) { return repository.save(p);}
-    public Person getOne(Long id) { return repository.getOne(id);}
+    public Person getOne(Long id) { return repository.findById(id).orElse(null);}
     public List<Person> getAll() { return repository.findAll();}
     public void delete(Person p) { repository.delete(p);}
 
