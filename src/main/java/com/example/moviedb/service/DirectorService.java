@@ -16,6 +16,7 @@ public class DirectorService {
     public DirectorService(DirectorRepository repository) {
         this.repository = repository;
     }
+
     public Director save(Director d){
         return repository.save(d);
     }

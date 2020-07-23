@@ -27,18 +27,9 @@ public class DirectorController {
     public ResponseEntity<Director> getOne(@PathVariable Long id) {
 
         return service.findById(id)
-                .map( re -> ResponseEntity.ok().body(re))
-                .orElse(ResponseEntity.notFound().build());
-
-        /*
-        Optional<Director> optional = service.findById(id);
-
-        if(optional.isPresent()) {
-            return ResponseEntity.ok().body(optional.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-        */
+                .map( re -> {
+                    return ResponseEntity.ok().body(re);
+                }).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
