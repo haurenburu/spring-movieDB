@@ -36,7 +36,7 @@ public class DirectorController {
         return service.save(d);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = {"/{id}"})
     public ResponseEntity<Director> update(@PathVariable Long id, @RequestBody Director d) {
         return service.findById(id).map( re -> {
             service.saveAndFlush(d);

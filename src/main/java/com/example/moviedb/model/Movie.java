@@ -18,9 +18,9 @@ public class Movie {
     Long id;
     String title;
     Integer duration;
-
+/*
     @ManyToOne
     @JoinColumn(name = "director_id")
     Director director;
-
+*/
 }

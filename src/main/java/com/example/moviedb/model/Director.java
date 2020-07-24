@@ -13,18 +13,17 @@ import java.util.List;
 @Entity
 public class Director {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     Integer quantMovies;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "director_id")
     List<Movie> movies;
 
     @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "person_id")
     Person person;
-
-
 
 }
