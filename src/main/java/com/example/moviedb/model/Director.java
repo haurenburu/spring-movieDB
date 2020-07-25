@@ -3,6 +3,7 @@ package com.example.moviedb.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class Director {
+public class Director extends RepresentationModel<Director> {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

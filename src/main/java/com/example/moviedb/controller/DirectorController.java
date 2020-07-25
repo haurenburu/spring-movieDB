@@ -1,9 +1,9 @@
 package com.example.moviedb.controller;
 
+import ch.qos.logback.core.net.server.Client;
 import com.example.moviedb.model.Director;
-import com.example.moviedb.repository.DirectorRepository;
 import com.example.moviedb.service.DirectorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +17,7 @@ public class DirectorController {
 
     public DirectorController(DirectorService service) { this.service = service; }
 
+    @CrossOrigin(origins = "http://localhost:3000", exposedHeaders = "X-Total-Count")
     @GetMapping
     public List<Director> listAll() {
         return service.getAll();
@@ -24,11 +25,25 @@ public class DirectorController {
 
     @GetMapping(path = {"/{id}"})
     public ResponseEntity<Director> getOne(@PathVariable Long id) {
+        Optional<Director> directorOptional = service.findById(id);
 
+        if(directorOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            Director director = directorOptional.get();
+            // self
+            director.add(WebMvcLinkBuilder.linkTo(DirectorController.class).slash(id).withSelfRel());
+            // all
+            director.add(WebMvcLinkBuilder.linkTo(DirectorController.class).withRel("all-directors"));
+
+            return ResponseEntity.ok().body(director);
+        }
+/*
         return service.findById(id)
                 .map( re -> {
                     return ResponseEntity.ok().body(re);
                 }).orElse(ResponseEntity.notFound().build());
+*/
     }
 
     @PostMapping
