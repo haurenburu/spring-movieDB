@@ -18,9 +18,12 @@ public class Movie {
     Long id;
     String title;
     Integer duration;
-/*
-    @ManyToOne
-    @JoinColumn(name = "director_id")
-    Director director;
-*/
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "movie_actors",
+            joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    List<Actor> actors;
 }

@@ -23,4 +23,7 @@ public class Actor extends RepresentationModel<Actor> {
     @JoinColumn(name = "person_id")
     Person person;
 
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    List<Movie> movies;
+
 }
