@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", exposedHeaders = "X-Total-Count")
 @RequestMapping("/person")
 public class PersonController {
     private PersonService service;

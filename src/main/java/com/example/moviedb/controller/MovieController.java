@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", exposedHeaders = "X-Total-Count")
 @RequestMapping("/movie")
 public class MovieController {
     private MovieService service;
