@@ -2,7 +2,7 @@ package com.example.moviedb.controller;
 
 import com.example.moviedb.model.Actor;
 import com.example.moviedb.service.ActorService;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+//import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +40,7 @@ public class ActorController {
         }
 */
         return service.findById(id)
-                .map( re -> {
-                    return ResponseEntity.ok().body(re);
-                }).orElse(ResponseEntity.notFound().build());
+                .map( re -> ResponseEntity.ok().body(re)).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping

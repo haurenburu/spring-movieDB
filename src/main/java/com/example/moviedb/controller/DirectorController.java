@@ -3,7 +3,7 @@ package com.example.moviedb.controller;
 import ch.qos.logback.core.net.server.Client;
 import com.example.moviedb.model.Director;
 import com.example.moviedb.service.DirectorService;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+//import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +40,7 @@ public class DirectorController {
         }
 */
         return service.findById(id)
-                .map( re -> {
-                    return ResponseEntity.ok().body(re);
-                }).orElse(ResponseEntity.notFound().build());
+                .map( re -> ResponseEntity.ok().body(re)).orElse(ResponseEntity.notFound().build());
 
     }
 
