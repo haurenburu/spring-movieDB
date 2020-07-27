@@ -26,7 +26,7 @@ public class DirectorController {
     @GetMapping(path = {"/{id}"})
     public ResponseEntity<Director> getOne(@PathVariable Long id) {
         Optional<Director> directorOptional = service.findById(id);
-
+/*
         if(directorOptional.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
@@ -38,12 +38,12 @@ public class DirectorController {
 
             return ResponseEntity.ok().body(director);
         }
-/*
+*/
         return service.findById(id)
                 .map( re -> {
                     return ResponseEntity.ok().body(re);
                 }).orElse(ResponseEntity.notFound().build());
-*/
+
     }
 
     @PostMapping

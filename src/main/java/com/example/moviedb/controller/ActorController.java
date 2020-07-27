@@ -24,6 +24,7 @@ public class ActorController {
 
     @GetMapping(path = {"/{id}"})
     public ResponseEntity<Actor> getOne(@PathVariable Long id) {
+/*
         Optional<Actor> actorOptional = service.findById(id);
 
         if(actorOptional.isEmpty()) {
@@ -37,12 +38,11 @@ public class ActorController {
 
             return ResponseEntity.ok().body(actor);
         }
-/*
+*/
         return service.findById(id)
                 .map( re -> {
                     return ResponseEntity.ok().body(re);
                 }).orElse(ResponseEntity.notFound().build());
-*/
     }
 
     @PostMapping
